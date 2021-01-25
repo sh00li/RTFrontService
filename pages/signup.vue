@@ -3,7 +3,7 @@
     <v-card
       class="register-card"
       outlined
-      width="600px"
+      width="400px"
     >
     <v-layout align-center justify-center>
       <!-- <img
@@ -13,7 +13,7 @@
       > -->
     </v-layout>
     <v-layout align-center justify-center class="register-title pointer">
-      ثبت نام در بوغوز
+      ثبت نام در دنک
     </v-layout>
       <form class="mt-5">
         <v-text-field
@@ -63,7 +63,7 @@
             color="#0b4f79"
             dark
           >
-            ورود
+            ثبت نام
           </v-btn>
           <v-layout align-center justify-center class="register-footer">
             <span class="ml-2">قبلا ثبت‌نام کرده‌اید؟</span>
@@ -112,7 +112,7 @@
         const errors = []
         if (!this.$v.name.$dirty) return errors
         !this.$v.name.maxLength && errors.push('نام حداکثر ۴۰ حرف است')
-        !this.$v.name.required && errors.push('نام لازم است')
+        !this.$v.name.required && errors.push('نام را وارد کنید')
         !this.$v.name.fa && errors.push('نام را فارسی وارد کنید')
         return errors
       },
@@ -120,14 +120,14 @@
         const errors = []
         if (!this.$v.family.$dirty) return errors
         !this.$v.family.maxLength && errors.push('نام خانوادگی حداکثر ۴۰ حرف است')
-        !this.$v.family.required && errors.push('نام خانوادگی لازم است')
+        !this.$v.family.required && errors.push('نام خانوادگی را وارد کنید')
         !this.$v.family.fa && errors.push('نام خانوادگی را فارسی وارد کنید')
         return errors
       },
       mobileErrors () {
         const errors = []
         if (!this.$v.mobile.$dirty) return errors
-        !this.$v.mobile.required && errors.push('موبایل لازم است')
+        !this.$v.mobile.required && errors.push('موبایل را وارد کنید')
         !this.$v.mobile.mo && errors.push('موبایل معتبر نیست')
         return errors
       },
@@ -135,7 +135,7 @@
         const errors = []
         if (!this.$v.password.$dirty) return errors
         !this.$v.password.minLength && errors.push('کلمه عبور حدافل ۶ حرف است')
-        !this.$v.password.required && errors.push('کلمه عبور لازم است')
+        !this.$v.password.required && errors.push('کلمه عبور را وارد کنید')
         return errors
       },
       checkboxErrors () {
@@ -160,21 +160,17 @@
     },
   }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .register-page{
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  @media only screen and (min-width: 768px) {
-    align-items: flex-start;
-    padding-top: 150px;
-  }
   .register-card{
     padding: 40px;
     border: none;
     @media only screen and (min-width: 768px) {
-      border: 1px solid rgb(221, 220, 220);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.35);
     }
     .logo{
       height: 100px;
@@ -186,10 +182,16 @@
     .v-btn{
       font-size: 18px !important;
     }
+    .v-label{
+      font-size: 14px !important;
+    }
     .register-footer{
       margin-top: 10px;
-      font-size: 16px;
+      font-size: 12px !important;
       color: #666;
+      a{
+        font-weight: 500;
+      }
     }
   }
 }
